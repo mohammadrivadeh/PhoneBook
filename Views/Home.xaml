@@ -1,0 +1,52 @@
+﻿<t:RadWindow  xmlns:t="http://schemas.telerik.com/2008/xaml/presentation" x:Class="PhoneBook.Views.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+        xmlns:local="clr-namespace:PhoneBook.Views"
+        mc:Ignorable="d"
+      WindowStartupLocation="CenterScreen"
+      navigation:RadWindowInteropHelper.ShowInTaskbar="True" HideMaximizeButton="True" ResizeMode="CanMinimize"
+      Header="Phone Book" Height="500" Width="1000">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions >
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <t:RadGridView x:Name="Datagridview" Cursor="Hand" ColumnWidth="145" MouseDoubleClick="Datagridview_MouseDoubleClick" Margin="5" ShowSearchPanel="True"  ShowGroupPanel="False" IsFilteringAllowed="True" ShowColumnFooters="True" SearchPanelCloseButtonVisibility="Collapsed" AlternationCount="2" SearchMode="MatchAnyTerm" CanUserSearch="True"  />
+
+
+        </Grid>
+
+
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions >
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0" Margin="5 20">
+                <t:Label Content="Name:" />
+                <t:RadWatermarkTextBox x:Name="TextboxName" />
+                <t:Label Content="Last Name:" />
+                <t:RadWatermarkTextBox x:Name="TextboxLastName" />
+                <t:Label Content="Mobile:" />
+                <t:RadWatermarkTextBox x:Name="TextboxMobile"/>
+                <t:Label Content="Email:"  />
+                <t:RadWatermarkTextBox x:Name="TextboxEmail" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <t:RadButton x:Name="CreateContact" Height="35"   Margin="10,5,10,0"  Click="CreateContact_Click"  Content ="Save"  />
+                <t:RadButton x:Name="EditContact"   Height="35"   Margin="10,5,10,0"   Click="EditContact_Click"    Content="Edit"   />
+                <t:RadButton x:Name="DeleteContact" Height="35"   Margin="10,5,10,0"   Click="DeleteContact_Click"  Content="Delete"  />
+                <t:RadButton x:Name="ExportContact" Height="35"   Margin="10,5,10,0"   Click="ExportContact_Click"  Content="Export Contact to Excel"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</t:RadWindow>
